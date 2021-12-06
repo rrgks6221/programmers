@@ -1,9 +1,5 @@
 function solution(seoul) {
-  for(var i = 0; i < seoul.length; i++){
-      if (seoul[i] == "Kim"){
-          answer = i;
-      }
+  for (let i = 0; i < seoul.length; i += 1) {
+    if (seoul[i] === 'Kim') return `김서방은 ${i}에 있다`;
   }
-  var answer = "김서방은 " + answer + "에 있다";
-  return answer;
 }
