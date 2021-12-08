@@ -1,18 +1,11 @@
 function solution(numbers) {
-  let answer = [];
-  for (let i = 0; i < numbers.length; i++) {
-      for (let j = 1; j < numbers.length && i !== j; j++) {
-          let sumNum = numbers[i] + numbers[j];
-          let repeat = 0;
-          for (let k = 0; k < answer.length; k++) {
-              if (sumNum === answer[k]) {
-                  repeat++;
-              }
-          }
-          if (repeat === 0) {
-              answer.push(sumNum);
-          }
-      }
+  const result = [];
+
+  for (let i = 0; i < numbers.length - 1; i += 1) {
+    for (let j = i + 1; j < numbers.length; j += 1) {
+      result.push(numbers[i] + numbers[j]);
+    }
   }
-  return answer.sort((a, b) => a - b);
+
+  return [...new Set(result)].sort((a, b) => a - b);
 }
