@@ -1,4 +1,5 @@
 function solution(absolutes, signs) {
-  let sum =absolutes.reduce((i, j, k) => {return signs[k] === true? i + j : i - j}, 0)
-  return sum;
+  return absolutes.reduce((acc, cur, idx) => {
+    return signs[idx] ? acc + cur : acc - cur;
+  }, 0);
 }
