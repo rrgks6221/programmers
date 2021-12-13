@@ -1,12 +1,13 @@
 function solution(s) {
-  let str = ""
-  for (let i = 0, j = 0; i < s.length; i++, j++) {
-      if (s[i] === " ") {
-          j = -1;
-          str += "";
-      }
-      if (j % 2 === 0) str += s[i].toUpperCase();
-      else str += s[i].toLowerCase();
-  }
-  return str;
+  return s
+    .split(' ')
+    .map((words, wordsIdx) => {
+      return words
+        .split('')
+        .map((word, wordIdx) => {
+          return wordIdx % 2 === 0 ? word.toUpperCase() : word.toLowerCase();
+        })
+        .join('');
+    })
+    .join(' ');
 }
