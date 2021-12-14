@@ -1,9 +1,12 @@
 function solution(d, budget) {
-  d.sort(function(a ,b) {
-      return a - b;
-  })
-  for (var result = 0; d[result] <= budget; result++) {
-      budget -= d[result];
+  let result = 0;
+
+  d.sort((a, b) => a - b);
+
+  for (let i = 0; d[i] <= budget; i += 1) {
+    budget -= d[i];
+    result += 1;
   }
+
   return result;
 }
