@@ -17,7 +17,7 @@ function solution(s) {
   const str = s.split('');
   let result = 0;
 
-  str.forEach((el, idx) => {
+  str.forEach(() => {
     str.push(str.shift());
 
     const stack = [];
