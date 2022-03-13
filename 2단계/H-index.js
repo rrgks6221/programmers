@@ -1,15 +1,11 @@
 function solution(citations) {
-  const len = citations.length;
-  let result = 0;
-
   citations.sort((a, b) => a - b);
 
-  for (let i = 0; i < len; i += 1) {
-    if (citations[i] >= len - i) {
-      result = len - i;
-      break;
+  for (let i = 0; i < citations.length; i += 1) {
+    if (citations[i] >= citations.length - i) {
+      return citations.length - i;
     }
   }
 
-  return result;
+  return 0;
 }
