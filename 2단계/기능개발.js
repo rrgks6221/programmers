@@ -1,6 +1,6 @@
 function solution(progresses, speeds) {
-  let count = 0;
   const result = [];
+  let count = 0;
 
   while (count < speeds.length) {
     for (let i = 0; i < speeds.length; i += 1) progresses[i] += speeds[i];
