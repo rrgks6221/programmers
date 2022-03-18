@@ -2,7 +2,7 @@ function solution(n, left, right) {
   const result = [];
 
   for (let i = left; i <= right; i += 1) {
-    let repeat = parseInt(i / n) + 1;
+    const repeat = parseInt(i / n) + 1;
 
     if (i % n < repeat) {
       result.push(repeat);
@@ -14,5 +14,3 @@ function solution(n, left, right) {
 
   return result;
 }
-
-console.log(solution(4, 7, 14));
