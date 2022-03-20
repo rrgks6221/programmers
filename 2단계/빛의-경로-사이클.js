@@ -28,6 +28,7 @@ function solution(grid) {
     },
   };
   const used = [];
+  const index = [0, 0];
   let state = 'up';
 
   for (let i of grid) {
@@ -43,13 +44,49 @@ function solution(grid) {
     }
   }
 
-  used[0][0].up = 1;
+  state = upMove(state);
 
-  for (let i = 0; i < grid.length; i += 1) {
-    grid[i] = grid[i].split('');
+  console.log(state);
+
+  function upMove(state) {
+    used[index[0]][index[1]].up = 1;
+
+    if (index[0] === 0) index[0] = grid.length - 1;
+
+    state = move[state][grid[index[0]][index[1]]];
+
+    return state;
   }
 
-  while (1) {
-    if (Object.values(used[0][0]).reduce((acc, cur) => acc + cur) === 4) break;
+  function downMove(state) {
+    used[index[0]][index[1]].down = 1;
+
+    if (index[1] === grid.length - 1) index[1] = 0;
+
+    state = move[state][grid[index[0]][index[1]]];
+
+    return state;
+  } // 여기까지 함
+
+  function leftMove(state) {
+    used[index[0]][index[1]].left = 1;
+
+    if (index[0] === 0) index[0] = grid.length - 1;
+
+    state = move[state][grid[index[0]][index[1]]];
+
+    return state;
+  }
+
+  function rightMove(state) {
+    used[index[0]][index[1]].right = 1;
+
+    if (index[0] === 0) index[0] = grid.length - 1;
+
+    state = move[state][grid[index[0]][index[1]]];
+
+    return state;
   }
 }
+
+solution(['SL', 'LR']);
