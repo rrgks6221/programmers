@@ -1,18 +1,10 @@
 function solution(clothes) {
-  const clothesObj = {};
-  let result = 1;
+  const obj = {};
 
-  for (let i = 0; i < clothes.length; i += 1) {
-    clothesObj[clothes[i][1]] = [];
-  }
+  clothes.forEach((cloth) => {
+    if (obj.hasOwnProperty(cloth[1])) obj[cloth[1]] += 1;
+    else obj[cloth[1]] = 2;
+  });
 
-  for (let i = 0; i < clothes.length; i += 1) {
-    clothesObj[clothes[i][1]].push(clothes[i][0]);
-  }
-
-  for (let key in clothesObj) {
-    result *= clothesObj[key].length + 1;
-  }
-
-  return result - 1;
+  return Object.values(obj).reduce((acc, cur) => (acc *= cur), 1) - 1;
 }
