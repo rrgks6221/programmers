@@ -1,11 +1,9 @@
 function solution(priorities, location) {
-  const idx = [];
+  const idx = priorities.map((_, idx) => idx);
   let order = 0;
-  let print;
+  let print = -1;
 
-  for (let i = 0; i < priorities.length; i += 1) idx.push(i);
-
-  while (1) {
+  while (print !== location) {
     if (priorities[0] === Math.max(...priorities)) {
       priorities.shift();
       print = idx.shift();
@@ -14,7 +12,7 @@ function solution(priorities, location) {
       priorities.push(priorities.shift());
       idx.push(idx.shift());
     }
-
-    if (print === location) return order;
   }
+
+  return order;
 }
