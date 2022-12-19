@@ -1,6 +1,6 @@
 function solution(n, arr1, arr2) {
     const myArray = []
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i += 1) {
         let temp = ""
         for (let j = 0; j < n; j++) {
             temp = ((arr1[i] % 2) + (arr2[i] % 2)) + temp;
